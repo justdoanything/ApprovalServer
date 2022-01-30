@@ -33,6 +33,9 @@ MSA 구현 교육을 기반으로 Off-line 결제 승인을 중계해주는 승�
 ### Docker 환경 구축
 
 
+### MSA 참고 자료
+https://github.com/justdoanything/self-study/blob/main/self-study/MSA.md
+
 
 ### 오프라인 결제와 온라인 결제의 정산
 매입요청은 정상적으로 결제승인이 떨어진것에 대하여 가맹점 -> 카드사에게 매입해 달라고 요청(PG사가 대행)
