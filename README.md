@@ -50,6 +50,7 @@ VAN 서비스는 다른 VAN 서비스를 호출
   - #### API Gateway : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Message Queue : ![Spring Badge](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Kafka Badge](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=ApacheKafka&logoColor=white)
   - #### Container Management : ![Docker Badge](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+  - #### Testing : 
 
 ![image](https://user-images.githubusercontent.com/21374902/152474692-b7a595bf-89eb-4e34-b93a-c5c912da3194.png)
 
