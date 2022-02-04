@@ -22,6 +22,10 @@ MSA 구현 교육을 기반으로 Off-line 결제 승인을 중계해주는 승�
   - 기타 데이터 저장 기능
 
 ### 사용 기술 및 아키텍처
+  ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white)
+  ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=Mybatis&logoColor=white)
+  ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=Eureka&logoColor=white)
+  ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white)
   - Spring Boot
   - JPA or Mybatis
   - Circuit breaker : Spring Cloud Hystrix
@@ -31,10 +35,36 @@ MSA 구현 교육을 기반으로 Off-line 결제 승인을 중계해주는 승�
   - Message Queue : Kafka
 
 ### Docker 환경 구축
-
+Docker 배포 환경 구축
 
 ### MSA 참고 자료
 https://github.com/justdoanything/self-study/blob/main/self-study/MSA.md
+
+### 기능 요구사항
+```
+Gateway는 인증, encrypt/decrypt하고 각 서비스로 분기해줌
+
+1개의 서비스에서 에러가 발생하면
+VAN 서비스는 다른 VAN 서비스를 호출
+카드사는 VAN 서비스를 호출
+
+각 status (요청 수신/전송 시도/결과/최종 결과) 모두 queue에 저장
+정산 서비스는 이 queue를 보고 데이터의 정합성을 시도
+      - 최종 결과가 실패인\망취소가 실패거나
+         결제 실패 후 다른 서비스에 요청했는데 그것도 모두 실패면
+         알람해주는 기능이 있어야하고 그 거래건에 대해서 망취소를 또 날려줘야함
+
+각 결제 서비스는 결제가 실패했을 때
+망취소 날려주고 결과 기록하고
+다른 서비스에 알려주고 기록하고
+
+다른 서비스가 결제 성공을 했을 때 G/W에 응답하고 Client에게 응답하는 방법이 필요함
+```
+
+
+![image](https://user-images.githubusercontent.com/21374902/152461626-3c478ad5-f1a2-417b-9769-7c5622f135ca.png)
+
+
 
 
 ### 오프라인 결제와 온라인 결제의 정산
