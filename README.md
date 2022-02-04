@@ -1,4 +1,4 @@
-# ApprovalServer
+# PaymentApprovalServer
 
 ### ➕ 구현 내용
 MSA 구현 교육을 기반으로 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
@@ -44,7 +44,7 @@ VAN 서비스는 다른 VAN 서비스를 호출
 ### ➕ 사용 기술 및 아키텍처
   - #### Service Framework : ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white)
   - #### Database : ![Mysql Badge](https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white)
-  - #### Circuit breaker : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Hystrix Badge](https://img.shields.io/badge/Hystrix-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
+  - #### Circuit Breaker : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Hystrix Badge](https://img.shields.io/badge/Hystrix-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Load Balance : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Ribbon Badge](https://img.shields.io/badge/Ribbon-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Service Discovery : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### API Gateway : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
