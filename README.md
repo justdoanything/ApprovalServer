@@ -10,7 +10,7 @@
 
 
 ### ➕ 구현 내용
-MSA 구현 교육을 기반으로 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
+MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
 결제 흐름은 IC 단말기로부터부터 시작되는 승인 요청 데이터를 수신하고 VAN사 중계 혹은 카드사로 직승인 요청을 전달하고 처리 결과를 Client(POS 프로그램)로 응답해준다.
   - POS 프로그램 : Postman
   - VAN, 카드사 : Mok Server
