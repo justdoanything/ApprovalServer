@@ -5,9 +5,10 @@
 ![Hystrix Badge](https://img.shields.io/badge/Hystrix-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
 ![Ribbon Badge](https://img.shields.io/badge/Ribbon-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
 ![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
+
 ![Kafka Badge](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=ApacheKafka&logoColor=white)
 ![Docker Badge](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
-
+![Flyway Badge](https://img.shields.io/badge/Flyway-BD0707?style=for-the-badge&logo=flyway&logoColor=white)
 
 ### ➕ 구현 내용
 MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
@@ -60,7 +61,7 @@ VAN 서비스는 다른 VAN 서비스를 호출
   - #### Message Queue : ![Spring Badge](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Kafka Badge](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=ApacheKafka&logoColor=white)
   - #### Container Management : ![Docker Badge](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
   - #### Testing : 
-  - #### Infra : AWS, SAM, JPA
+  - #### Infra : AWS, SAM, JPA, Flyway
 ![image](https://user-images.githubusercontent.com/21374902/152474692-b7a595bf-89eb-4e34-b93a-c5c912da3194.png)
 
 
