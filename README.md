@@ -10,6 +10,12 @@
 ![Docker Badge](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 ![Flyway Badge](https://img.shields.io/badge/Flyway-BD0707?style=for-the-badge&logo=flyway&logoColor=white)
 
+### ➕ 프로젝트 구현
+  - 결제 승인 서버를 MSA로 구현해보고 Hystrix, Ribbon, Eureka, Kafka 등을 적용해본다.
+  - 배포는 Docker Container 기반으로 되도록 한다.
+  - 프로젝트 구현은 한 번에 모든 기술을 적용하지 않고 Hystrix부터 한개씩 차례대로 적용해보면서 각 기능이 하는 동작과 이점에 대해서 알아본다.
+  - 테스트 자동화 코드까지 적용해본다.
+
 ### ➕ 구현 내용
 MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
 결제 흐름은 IC 단말기로부터부터 시작되는 승인 요청 데이터를 수신하고 VAN사 중계 혹은 카드사로 직승인 요청을 전달하고 처리 결과를 Client(POS 프로그램)로 응답해준다.
