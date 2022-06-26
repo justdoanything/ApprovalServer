@@ -1,0 +1,71 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Launch EurekaApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.eureka.EurekaApplication",
+      "projectName": "eureka"
+    },
+    {
+      "type": "java",
+      "name": "Launch FdkApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.van.fdk.FdkApplication",
+      "args": "--spring.profiles.active=local",
+      "projectName": "fdk"
+    },
+    {
+      "type": "java",
+      "name": "Launch GatewayApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.gateway.GatewayApplication",
+      "projectName": "gateway"
+    },
+    {
+      "type": "java",
+      "name": "Launch KbApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.card.kb.KbApplication",
+      "projectName": "kb"
+    },
+    {
+      "type": "java",
+      "name": "Launch KftcApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.van.kftc.KftcApplication",
+      "projectName": "kftc"
+    },
+    {
+      "type": "java",
+      "name": "Launch NhApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.card.nh.NhApplication",
+      "projectName": "nh"
+    },
+    {
+      "type": "java",
+      "name": "Launch NiceApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.van.nice.NiceApplication",
+      "projectName": "nice"
+    },
+    {
+      "type": "java",
+      "name": "Launch ShinhanApplication",
+      "request": "launch",
+      "mainClass": "prj.yong.payment.approval.card.shinhan.ShinhanApplication",
+      "projectName": "shinhan"
+    }
+  ]
+}

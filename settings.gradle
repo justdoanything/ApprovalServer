@@ -1,0 +1,10 @@
+rootProject.name = 'payment_approval_server'
+
+include 'gateway'
+include 'eureka'
+include 'kb'
+include 'nh'
+include 'shinhan'
+include 'fdk'
+include 'kftc'
+include 'nice'
