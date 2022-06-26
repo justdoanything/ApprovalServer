@@ -22,8 +22,8 @@
       "name": "Launch FdkApplication",
       "request": "launch",
       "mainClass": "prj.yong.payment.approval.van.fdk.FdkApplication",
-      "args": "--spring.profiles.active=local",
-      "projectName": "fdk"
+      "projectName": "fdk",
+      "args": "--spring.profiles.active=local"
     },
     {
       "type": "java",

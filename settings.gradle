@@ -1,4 +1,4 @@
-rootProject.name = 'payment_approval_server'
+rootProject.name = 'payment-approval-server'
 
 include 'gateway'
 include 'eureka'
