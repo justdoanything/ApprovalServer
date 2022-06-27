@@ -12,13 +12,13 @@ import prj.yong.payment.approval.van.kftc.service.VanKftcService;
 public class VanKftcServiceImpl implements VanKftcService{
 
     @Override
-    @HystrixCommand(commandKey = "sendApprovalMessageToVankftc", fallbackMethod = "fallbackSendApprovalMessageToVankftc")
-    public ResponseEntity<Object> sendApprovalMessageToVankftc(JsonObject request) throws Exception {
+    @HystrixCommand(commandKey = "sendApprovalMessageToVanKftc", fallbackMethod = "fallbackSendApprovalMessageToVanKftc")
+    public ResponseEntity<Object> sendApprovalMessageToVanKftc(JsonObject request) throws Exception {
         // TODO Auto-generated method stub
         return null;
     }
 
-    public ResponseEntity<Object> fallbackSendApprovalMessageToVankftc(JsonObject request, Throwable throwable){
+    public ResponseEntity<Object> fallbackSendApprovalMessageToVanKftc(JsonObject request, Throwable throwable){
         // Gateway를 다시 호출해서 다른 VAN 서비스가 호출되게 해야함.
         return null;
     }
