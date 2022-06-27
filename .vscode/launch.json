@@ -44,7 +44,8 @@
       "name": "Launch KftcApplication",
       "request": "launch",
       "mainClass": "prj.yong.payment.approval.van.kftc.KftcApplication",
-      "projectName": "kftc"
+      "projectName": "kftc",
+      "args": "--spring.profiles.active=local"
     },
     {
       "type": "java",
