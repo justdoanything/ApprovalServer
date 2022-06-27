@@ -1,0 +1,36 @@
+server:
+  port: 8050
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allow-credentials: true
+      routes:
+        - id: fdk
+          uri: lb://FDK
+          predicates:
+            - Path=/van/fdk/**
+        - id: kftc
+          uri: lb://KFTC
+          predicates:
+            - Path=/van/kftc/**
+
+eureke:
+  client:
+    server-url:
+      default-zone: http://${EUREKA}:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+EUREKA: localhost
+APIGATEWAY: localhost
