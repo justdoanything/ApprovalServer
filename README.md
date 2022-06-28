@@ -59,11 +59,11 @@ VAN 서비스는 다른 VAN 서비스를 호출
 
 ### ➕ 사용 기술 및 아키텍처
   - #### Service Framework : ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white)
-  - #### Database : ![Mysql Badge](https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white)
+  - #### Database : ![Mysql Badge](https://img.shields.io/badge/PostgreSQL-4479A1?style=for-the-badge&logo=POSTGRESQL&logoColor=white)
   - #### Circuit Breaker : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Hystrix Badge](https://img.shields.io/badge/Hystrix-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Load Balance : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Ribbon Badge](https://img.shields.io/badge/Ribbon-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Service Discovery : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
-  - #### API Gateway : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
+  - #### API Gateway : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Gateway-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Message Queue : ![Spring Badge](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Kafka Badge](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=ApacheKafka&logoColor=white)
   - #### Container Management : ![Docker Badge](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
   - #### Testing : 
@@ -72,7 +72,7 @@ VAN 서비스는 다른 VAN 서비스를 호출
 
 
 ### ➕ 참고 자료
-- ###### MSA Architecture : https://github.com/justdoanything/self-study/blob/main/self-study/MSA.md
+- ###### MSA Architecture : https://github.com/justdoanything/self-study/blob/main/self-study/04%20MSA.md
 - ###### 오프라인 결제와 온라인 결제의 정산
   - 온라인 결제 정산
     - 매입요청은 정상적으로 결제승인이 떨어진것에 대하여 가맹점 -> 카드사에게 매입해 달라고 요청(PG사가 대행)
