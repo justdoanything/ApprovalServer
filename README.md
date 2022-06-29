@@ -1,11 +1,11 @@
 # PaymentApprovalServer
 ### ➕ Tech Badge
 ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white)
-![Mysql Badge](https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white)
+![PostgreSQL Badge](https://img.shields.io/badge/POSTGRESQL-4479A1?style=for-the-badge&logo=POSTGRESQL&logoColor=white)
 ![Hystrix Badge](https://img.shields.io/badge/Hystrix-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
 ![Ribbon Badge](https://img.shields.io/badge/Ribbon-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
 ![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
-
+![API Gateway Badge](https://img.shields.io/badge/Gateway-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
 ![Kafka Badge](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=ApacheKafka&logoColor=white)
 ![Docker Badge](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 ![Flyway Badge](https://img.shields.io/badge/Flyway-BD0707?style=for-the-badge&logo=flyway&logoColor=white)
@@ -15,6 +15,7 @@
   - 배포는 Docker Container 기반으로 되도록 한다.
   - 프로젝트 구현은 한 번에 모든 기술을 적용하지 않고 Hystrix부터 한개씩 차례대로 적용해보면서 각 기능이 하는 동작과 이점에 대해서 알아본다.
   - 테스트 자동화 코드까지 적용해본다.
+  - 구현하면서 메모한 내용들 : https://github.com/justdoanything/self-study/blob/main/self-study/04%20MSA.md#msa-%EA%B5%AC%ED%98%84-note
 
 ### ➕ 구현 내용
 MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
@@ -59,11 +60,11 @@ VAN 서비스는 다른 VAN 서비스를 호출
 
 ### ➕ 사용 기술 및 아키텍처
   - #### Service Framework : ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white)
-  - #### Database : ![Mysql Badge](https://img.shields.io/badge/PostgreSQL-4479A1?style=for-the-badge&logo=POSTGRESQL&logoColor=white)
+  - #### Database : ![PostgreSQL Badge](https://img.shields.io/badge/PostgreSQL-4479A1?style=for-the-badge&logo=POSTGRESQL&logoColor=white) ![Flyway Badge](https://img.shields.io/badge/Flyway-BD0707?style=for-the-badge&logo=flyway&logoColor=white)
   - #### Circuit Breaker : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Hystrix Badge](https://img.shields.io/badge/Hystrix-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Load Balance : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Ribbon Badge](https://img.shields.io/badge/Ribbon-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Service Discovery : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Eureka-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
-  - #### API Gateway : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Eureka Badge](https://img.shields.io/badge/Gateway-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
+  - #### API Gateway : ![SpringCloud Badge](https://img.shields.io/badge/SpringCloud-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![API Gateway Badge](https://img.shields.io/badge/Gateway-E50914?style=for-the-badge&logo=Netflix&logoColor=white)
   - #### Message Queue : ![Spring Badge](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white)![Kafka Badge](https://img.shields.io/badge/Kafka-231F20?style=for-the-badge&logo=ApacheKafka&logoColor=white)
   - #### Container Management : ![Docker Badge](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
   - #### Testing : 
