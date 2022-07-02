@@ -16,6 +16,9 @@
   - 프로젝트 구현은 한 번에 모든 기술을 적용하지 않고 Hystrix부터 한개씩 차례대로 적용해보면서 각 기능이 하는 동작과 이점에 대해서 알아본다.
   - 테스트 자동화 코드까지 적용해본다.
   - 구현하면서 메모한 내용들 : https://github.com/justdoanything/self-study/blob/main/self-study/04%20MSA.md#msa-%EA%B5%AC%ED%98%84-note
+  - 참고 모델
+    
+    ![image](https://user-images.githubusercontent.com/21374902/176366449-68b59fc8-97c7-49e6-b791-6a5e11b28fd0.png)
 
 ### ➕ 구현 내용
 MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
