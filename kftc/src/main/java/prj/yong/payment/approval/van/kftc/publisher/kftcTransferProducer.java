@@ -14,7 +14,7 @@ import prj.yong.payment.approval.van.kftc.domain.TransactionHistory;
 import prj.yong.payment.approval.van.kftc.exception.SystemException;
 
 @Component
-public class kftcTransferProducer {
+public class KftcTransferProducer {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
