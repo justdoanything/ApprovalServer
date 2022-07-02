@@ -94,3 +94,14 @@ VAN 서비스는 다른 VAN 서비스를 호출
     - 입반송 > 카드사에서 입금인지 아닌지 밴사에 결과내려줌
     - 입반송적용 > 전달받은 입반송결과를 우리가갖고있는 청구내역에 반영함
     - 정산 > 가맹점에서 한달치 통장내역 올려주면 입반송적용한데까지 금액이맞는지 누락된건없는지 짝맞춰봄
+
+### ➕ Kafka 실행
+- Zookeeper 실행 : `bin/zookeeper-server-start.sh -daemon config/zookeeper.properties`
+- Kafka 실행 : `bin/kafka-server-start.sh -daemon config/server.properties`
+- Zookeeper&Kafka 실행 확인 : `netstat -an | grep 2181`
+- Kafka topic 생성 : `bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test`
+- Kafka topic 생성 확인 : `bin/kafka-topics.sh --list --bootstrap-server localhost:9092`
+- Kafka 메세지 발행 : `bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test`
+- Kafka 메세지 소비 : `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning`
+
+- Reference : https://developer-youngjun.tistory.com/13
