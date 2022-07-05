@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiOperation;
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
-import prj.yong.payment.approval.van.kftc.service.VanKftcService;
+import prj.yong.payment.approval.van.kftc.service.KftcService;
 
 @RestController
-public class VanKftcController {
+public class KftcController {
 
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     
     @Autowired
-    private VanKftcService vanKftcService;
+    private KftcService vanKftcService;
 
     @ApiOperation(value = "kftc 전문 수신", httpMethod = "POST", notes = "kftc 승인 전문 전송")
     @PutMapping("/rest/van/kftc/v1.0")

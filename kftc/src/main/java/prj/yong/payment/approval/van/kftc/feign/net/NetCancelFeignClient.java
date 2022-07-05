@@ -12,17 +12,17 @@ import feign.hystrix.FallbackFactory;
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 
 @FeignClient(name="van-fdk", fallbackFactory = FdkFeignClientFallbackFactory.class)
-public interface FdkFeignClient {
+public interface NetCancelFeignClient {
     @GetMapping("/van/fdk/mang/cancel/v1.0")
     TransactionResult mangCancel(@RequestBody ClientRxTransanction clientRxTransanction) throws Exception;
 }
 
 @Component
-class FdkFeignClientFallbackFactory implements FallbackFactory<FdkFeignClient> {
+class FdkFeignClientFallbackFactory implements FallbackFactory<NetCancelFeignClient> {
 
     @Override
-    public FdkFeignClient create(Throwable cause) {
-        return new FdkFeignClient(){
+    public NetCancelFeignClient create(Throwable cause) {
+        return new NetCancelFeignClient(){
             private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
             @Override

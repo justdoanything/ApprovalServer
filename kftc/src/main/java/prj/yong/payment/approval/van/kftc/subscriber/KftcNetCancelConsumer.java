@@ -10,21 +10,21 @@ import org.springframework.kafka.support.Acknowledgment;
 
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 import prj.yong.payment.approval.van.kftc.exception.SystemException;
-import prj.yong.payment.approval.van.kftc.feign.net.FdkFeignClient;
+import prj.yong.payment.approval.van.kftc.feign.net.NetCancelFeignClient;
 import prj.yong.payment.approval.van.kftc.publisher.KftcTransferProducer;
-import prj.yong.payment.approval.van.kftc.service.VanKftcService;
+import prj.yong.payment.approval.van.kftc.service.KftcService;
 
 public class KftcNetCancelConsumer {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Resource(name = "vanKftcService")
-    private VanKftcService vanKftcService;
+    private KftcService vanKftcService;
 
     @Autowired
     private KftcTransferProducer kftcTransferProducer;
 
     @Autowired
-    FdkFeignClient fdkFeignClient;
+    NetCancelFeignClient fdkFeignClient;
 
     @KafkaListener(topics = "${kftc.transfer.cancel.fdk.topic.name}", containerFactory = "kftcNetCancelKafkaListenerContainerFactory")
     private void kftcTransferCancelFdkListener(ClientRxTransanction clientRxTransanction, Acknowledgment ack) throws Exception {

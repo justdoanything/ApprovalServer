@@ -4,6 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 
-public interface VanKftcService {
+public interface KftcService {
     ResponseEntity<Object> sendApprovalMessageToVanKftc(ClientRxTransanction request) throws Exception;
 }
