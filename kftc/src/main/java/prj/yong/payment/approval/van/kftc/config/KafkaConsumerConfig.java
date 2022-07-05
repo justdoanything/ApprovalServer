@@ -28,7 +28,7 @@ public class KafkaConsumerConfig {
     public ConsumerFactory<String, ClientRxTransanction> kftcNetCancelConsumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "kftcTransfer");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "kftcNetCancel");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);

@@ -21,11 +21,19 @@ public class VanKftcController {
     @Autowired
     private VanKftcService vanKftcService;
 
-    @ApiOperation(value = "kftc 전문 전송", httpMethod = "PUT", notes = "kftc 전문 전송")
+    @ApiOperation(value = "kftc 전문 수신", httpMethod = "POST", notes = "kftc 전문 전송")
     @PutMapping("/rest/van/kftc/v1.0")
     public ResponseEntity<Object> sendApprovalMessageToVankftc(@RequestParam JsonObject request) throws Exception {
         
         LOGGER.debug("Calling url : /rest/van/kftc/v1.0\n- request : " + request.toString());
+        return vanKftcService.sendApprovalMessageToVanKftc(request);
+    }
+
+    @ApiOperation(value = "kftc 망취소 전문 수신", httpMethod = "POST", notes = "kftc 전문 전송")
+    @PutMapping("/rest/van/kftc/net/cancel/v1.0")
+    public ResponseEntity<Object> getNetCancelMessage(@RequestParam JsonObject request) throws Exception {
+        
+        LOGGER.debug("Calling url : /rest/van/kftc/net/cancel/v1.0\n- request : " + request.toString());
         return vanKftcService.sendApprovalMessageToVanKftc(request);
     }
     

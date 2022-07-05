@@ -10,11 +10,11 @@ import org.springframework.kafka.support.Acknowledgment;
 
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 import prj.yong.payment.approval.van.kftc.exception.SystemException;
-import prj.yong.payment.approval.van.kftc.feign.fdk.FdkFeignClient;
+import prj.yong.payment.approval.van.kftc.feign.net.FdkFeignClient;
 import prj.yong.payment.approval.van.kftc.publisher.KftcTransferProducer;
 import prj.yong.payment.approval.van.kftc.service.VanKftcService;
 
-public class KftcTransferResultConsumer {
+public class KftcNetCancelConsumer {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Resource(name = "vanKftcService")

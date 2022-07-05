@@ -1,4 +1,4 @@
-package prj.yong.payment.approval.van.kftc.feign.fdk;
+package prj.yong.payment.approval.van.kftc.feign.net;
 
 import org.apache.kafka.common.requests.TransactionResult;
 import org.slf4j.Logger;
