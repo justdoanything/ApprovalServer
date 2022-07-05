@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonObject;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 import prj.yong.payment.approval.van.kftc.service.VanKftcService;
 
 @Service
@@ -13,8 +14,9 @@ public class VanKftcServiceImpl implements VanKftcService{
 
     @Override
     @HystrixCommand(commandKey = "sendApprovalMessageToVanKftc", fallbackMethod = "fallbackSendApprovalMessageToVanKftc")
-    public ResponseEntity<Object> sendApprovalMessageToVanKftc(JsonObject request) throws Exception {
+    public ResponseEntity<Object> sendApprovalMessageToVanKftc(ClientRxTransanction request) throws Exception {
         // TODO Auto-generated method stub
+        
         return null;
     }
 
