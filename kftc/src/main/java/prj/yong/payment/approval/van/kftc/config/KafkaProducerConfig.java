@@ -12,7 +12,10 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-import prj.yong.payment.approval.van.kftc.domain.TransactionHistory;
+import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
+import prj.yong.payment.approval.van.kftc.domain.entity.ClientTxTransanction;
+import prj.yong.payment.approval.van.kftc.domain.entity.KftcRxTransanction;
+import prj.yong.payment.approval.van.kftc.domain.entity.KftcTxTransanction;
 
 @Configuration
 public class KafkaProducerConfig {
@@ -21,7 +24,7 @@ public class KafkaProducerConfig {
     private String bootstrapAddress;
 
     @Bean
-    public ProducerFactory<String, TransactionHistory> kftcTransferProducerFactory() {
+    public ProducerFactory<String, ClientRxTransanction> clientRxTransactionProducerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -30,12 +33,12 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, TransactionHistory> kftcTransferKafkaTemplate() {
-        return new KafkaTemplate<>(kftcTransferProducerFactory());
+    public KafkaTemplate<String, ClientRxTransanction> clientRxTransactionKafkaTemplate() {
+        return new KafkaTemplate<>(clientRxTransactionProducerFactory());
     }
 
     @Bean
-    public ProducerFactory<String, TransactionHistory> kftcTransferLimitProducerFactory() {
+    public ProducerFactory<String, ClientTxTransanction> clientTxTransactionProducerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -44,8 +47,36 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, TransactionHistory> kftcTransferLimitKafkaTemplate() {
-        return new KafkaTemplate<>(kftcTransferLimitProducerFactory());
+    public KafkaTemplate<String, ClientTxTransanction> clientTxTransactionKafkaTemplate() {
+        return new KafkaTemplate<>(clientTxTransactionProducerFactory());
+    }
+
+    @Bean
+    public ProducerFactory<String, KftcRxTransanction> kftcRxTransactionProducerFactory() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        return new DefaultKafkaProducerFactory<>(props);
+    }
+
+    @Bean
+    public KafkaTemplate<String, KftcRxTransanction> kftcRxTransactionKafkaTemplate() {
+        return new KafkaTemplate<>(kftcRxTransactionProducerFactory());
+    }
+
+    @Bean
+    public ProducerFactory<String, KftcTxTransanction> kftcTxTransactionProducerFactory() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        return new DefaultKafkaProducerFactory<>(props);
+    }
+
+    @Bean
+    public KafkaTemplate<String, KftcTxTransanction> kftcTxTransactionKafkaTemplate() {
+        return new KafkaTemplate<>(kftcTxTransactionProducerFactory());
     }
 
 }

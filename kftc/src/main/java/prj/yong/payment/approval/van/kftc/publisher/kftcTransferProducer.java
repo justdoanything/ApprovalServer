@@ -10,7 +10,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
-import prj.yong.payment.approval.van.kftc.domain.TransactionHistory;
+import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
+import prj.yong.payment.approval.van.kftc.domain.entity.ClientTxTransanction;
+import prj.yong.payment.approval.van.kftc.domain.entity.KftcRxTransanction;
+import prj.yong.payment.approval.van.kftc.domain.entity.KftcTxTransanction;
 import prj.yong.payment.approval.van.kftc.exception.SystemException;
 
 @Component
@@ -18,22 +21,28 @@ public class KftcTransferProducer {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private KafkaTemplate<String, TransactionHistory> kftcTransferKafkaTemplate;
+    private KafkaTemplate<String, ClientRxTransanction> clientRxTransactionKafkaTemplate;
 
     @Autowired
-    private KafkaTemplate<String, TransactionHistory> kftcTransferLimitKafkaTemplate;
+    private KafkaTemplate<String, ClientTxTransanction> clientTxTransactionKafkaTemplate;
+
+    @Autowired
+    private KafkaTemplate<String, KftcRxTransanction> kftcRxTransactionKafkaTemplate;
+
+    @Autowired
+    private KafkaTemplate<String, KftcTxTransanction> kftcTxTransactionProducerFactory;
 
     @Value(value = "${kftc.transfer.topic.name}")
     private String kftcTransferTopicName;
 
-    public void sendTransactionMessage(TransactionHistory transactionHistory){
-        ListenableFuture<SendResult<String, TransactionHistory>> future = kftcTransferKafkaTemplate.send(kftcTransferTopicName, transactionHistory);
+    public void sendTransactionMessage(ClientRxTransanction transactionHistory){
+        ListenableFuture<SendResult<String, ClientRxTransanction>> future = clientRxTransactionKafkaTemplate.send(kftcTransferTopicName, transactionHistory);
 
-        future.addCallback(new ListenableFutureCallback<SendResult<String, TransactionHistory>>() {
+        future.addCallback(new ListenableFutureCallback<SendResult<String, ClientRxTransanction>>() {
 
             @Override
-            public void onSuccess(SendResult<String, TransactionHistory> result) {
-                TransactionHistory th = result.getProducerRecord().value();
+            public void onSuccess(SendResult<String, ClientRxTransanction> result) {
+                ClientRxTransanction th = result.getProducerRecord().value();
                 LOGGER.info("Sent message=[" + "] with offset=[" + result.getRecordMetadata().offset() + "]");
             }
 

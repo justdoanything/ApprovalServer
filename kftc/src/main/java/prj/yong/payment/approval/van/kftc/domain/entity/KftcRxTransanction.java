@@ -14,9 +14,9 @@ public class KftcRxTransanction {
     @Id @GeneratedValue
     private Long rxId;
     private Long txId;
-    private String res_cd;
-    private String res_msg;
-    private String approval_no;
-    private String approval_dt;
-    private String approval_msg;
+    private String resCd;
+    private String resMsg;
+    private String approvalNo;
+    private String approvalDt;
+    private String approvalMsg;
 }

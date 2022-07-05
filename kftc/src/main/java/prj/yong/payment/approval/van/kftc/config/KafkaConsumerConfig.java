@@ -16,7 +16,7 @@ import org.springframework.kafka.listener.ContainerProperties.AckMode;
 import org.springframework.kafka.listener.SeekToCurrentErrorHandler;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import prj.yong.payment.approval.van.kftc.domain.TransactionHistory;
+import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 
 @EnableKafka
 @Configuration
@@ -25,7 +25,7 @@ public class KafkaConsumerConfig {
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
     
-    public ConsumerFactory<String, TransactionHistory> kftcTransferResultConsumerFactory() {
+    public ConsumerFactory<String, ClientRxTransanction> kftcNetCancelConsumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "kftcTransfer");
@@ -33,13 +33,13 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(TransactionHistory.class, false));
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(ClientRxTransanction.class, false));
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, TransactionHistory> kftcTransferResultKafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, TransactionHistory> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(kftcTransferResultConsumerFactory());
+    public ConcurrentKafkaListenerContainerFactory<String, ClientRxTransanction> kftcNetCancelKafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, ClientRxTransanction> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(kftcNetCancelConsumerFactory());
         factory.getContainerProperties().setAckMode(AckMode.MANUAL_IMMEDIATE);
         factory.setErrorHandler(new SeekToCurrentErrorHandler());
 
