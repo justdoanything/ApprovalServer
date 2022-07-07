@@ -50,6 +50,8 @@ public class KftcServiceImpl implements KftcService{
 
     public ResponseEntity<Object> fallbackSendApprovalMessageToVanKftc(JsonObject request, Throwable throwable){
         // Gateway를 다시 호출해서 다른 VAN 서비스가 호출되게 해야함.
+
+        // 다른 서비스에 url을 호출해서 결제 태운다.
         return null;
     }
     
