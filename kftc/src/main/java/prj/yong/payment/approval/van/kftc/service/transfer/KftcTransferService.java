@@ -1,4 +1,4 @@
-package prj.yong.payment.approval.van.kftc.service;
+package prj.yong.payment.approval.van.kftc.service.transfer;
 
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 import prj.yong.payment.approval.van.kftc.domain.entity.KftcTxTransanction;

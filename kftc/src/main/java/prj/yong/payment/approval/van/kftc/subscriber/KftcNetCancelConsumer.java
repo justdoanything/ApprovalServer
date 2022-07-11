@@ -12,7 +12,7 @@ import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 import prj.yong.payment.approval.van.kftc.exception.SystemException;
 import prj.yong.payment.approval.van.kftc.feign.net.NetCancelFeignClient;
 import prj.yong.payment.approval.van.kftc.publisher.KftcTransferProducer;
-import prj.yong.payment.approval.van.kftc.service.KftcService;
+import prj.yong.payment.approval.van.kftc.service.rest.KftcService;
 
 public class KftcNetCancelConsumer {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());

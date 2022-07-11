@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiOperation;
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
-import prj.yong.payment.approval.van.kftc.service.KftcService;
+import prj.yong.payment.approval.van.kftc.service.rest.KftcService;
 
 @RestController
 public class KftcController {

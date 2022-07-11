@@ -1,13 +1,13 @@
-package prj.yong.payment.approval.van.kftc.service.impl;
+package prj.yong.payment.approval.van.kftc.service.transfer.impl;
 
 import org.springframework.stereotype.Service;
 
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 import prj.yong.payment.approval.van.kftc.domain.entity.KftcTxTransanction;
-import prj.yong.payment.approval.van.kftc.service.KftcTransferService;
+import prj.yong.payment.approval.van.kftc.service.transfer.KftcTransferService;
 
 @Service
-public class KftcCancelTransferServiceImpl implements KftcTransferService {
+public class KftcNetCancelTransferServiceImpl implements KftcTransferService {
 
     @Override
     public void readyMessage(ClientRxTransanction request) {

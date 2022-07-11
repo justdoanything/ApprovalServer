@@ -1,4 +1,4 @@
-package prj.yong.payment.approval.van.kftc.service;
+package prj.yong.payment.approval.van.kftc.service.rest;
 
 import org.springframework.http.ResponseEntity;
 

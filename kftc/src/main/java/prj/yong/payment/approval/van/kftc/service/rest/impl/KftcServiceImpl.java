@@ -1,4 +1,4 @@
-package prj.yong.payment.approval.van.kftc.service.impl;
+package prj.yong.payment.approval.van.kftc.service.rest.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,10 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import prj.yong.payment.approval.van.kftc.domain.entity.ClientRxTransanction;
 import prj.yong.payment.approval.van.kftc.domain.entity.KftcTxTransanction;
-import prj.yong.payment.approval.van.kftc.service.KftcService;
+import prj.yong.payment.approval.van.kftc.service.rest.KftcService;
+import prj.yong.payment.approval.van.kftc.service.transfer.impl.KftcApprovalTransferServiceImpl;
+import prj.yong.payment.approval.van.kftc.service.transfer.impl.KftcCancelTransferServiceImpl;
+import prj.yong.payment.approval.van.kftc.service.transfer.impl.KftcNetCancelTransferServiceImpl;
 
 @Service
 public class KftcServiceImpl implements KftcService{
