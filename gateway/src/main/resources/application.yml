@@ -20,10 +20,18 @@ spring:
           uri: lb://FDK
           predicates:
             - Path=/van/fdk/**
+          filters:
+            - AddRequestHeader=sampleRequestHeader, sample
+            - AddResponseHeader=sampleResponseHeader, sample
+            - CustomFilter
         - id: kftc
           uri: lb://KFTC
           predicates:
             - Path=/van/kftc/**
+          filters:
+            - AddRequestHeader=sampleRequestHeader, sample
+            - AddResponseHeader=sampleResponseHeader, sample
+            - CustomFilter
 
 eureke:
   client:
