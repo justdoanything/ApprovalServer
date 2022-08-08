@@ -15,6 +15,12 @@ spring:
             allowed-methods: "*"
             allowed-headers: "*"
             allow-credentials: true
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway Global Filter Base Message
+            preLogger: true
+            postLogger: true
       routes:
         - id: fdk
           uri: lb://FDK

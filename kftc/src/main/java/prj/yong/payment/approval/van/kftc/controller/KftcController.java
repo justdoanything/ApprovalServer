@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,12 @@ public class KftcController {
     
     @Autowired
     private KftcService vanKftcService;
+
+    @ApiOperation(value = "kftc health check", httpMethod = "GET", notes = "kftc server health check")
+    @GetMapping("/rest/van/kftc/health")
+    public ResponseEntity<Object> sendHealthCheck() throws Exception {
+        return ResponseEntity.ok().build();
+    }
 
     @ApiOperation(value = "kftc 승인 전문 수신", httpMethod = "POST", notes = "kftc 승인 요청 전문 수신")
     @PutMapping("/rest/van/kftc/v1.0")

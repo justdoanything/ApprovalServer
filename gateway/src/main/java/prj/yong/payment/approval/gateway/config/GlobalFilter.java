@@ -21,6 +21,7 @@ public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Conf
       ServerHttpRequest request = exchange.getRequest();
       ServerHttpResponse response = exchange.getResponse();
       
+      System.out.println("This is global filter : " + config.getBaseMessage());
       if (config.isPreLogger()) {
         // Pre Filter
         System.out.println("This is pre global filter ");
