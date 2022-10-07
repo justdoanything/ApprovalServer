@@ -15,7 +15,7 @@
   - 배포는 Docker Container 기반으로 되도록 한다.
   - 프로젝트 구현은 한 번에 모든 기술을 적용하지 않고 Hystrix부터 한개씩 차례대로 적용해보면서 각 기능이 하는 동작과 이점에 대해서 알아본다. 각 동작마다 새로운 Branch를 생성한다.
   - Dockerfile 및 테스트 코드까지 작성한다.
-  - 구현하면서 메모한 내용 : https://github.com/justdoanything/self-study/blob/main/self-study/04%20MSA.md#msa-%EA%B5%AC%ED%98%84-note
+  - 구현하면서 메모한 내용 : https://github.com/justdoanything/self-study/blob/main/WIS/04%20MSA.md#msa-구현-note
   - 참고 모델
     
     ![image](https://user-images.githubusercontent.com/21374902/176366449-68b59fc8-97c7-49e6-b791-6a5e11b28fd0.png)
