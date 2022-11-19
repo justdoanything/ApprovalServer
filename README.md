@@ -14,8 +14,12 @@
   - 결제 승인 서버를 MSA로 구현해보고 Hystrix, Ribbon, Eureka, Kafka 등을 적용해본다.
   - 배포는 Docker Container 기반으로 되도록 한다.
   - 프로젝트 구현은 한 번에 모든 기술을 적용하지 않고 Hystrix부터 한개씩 차례대로 적용해보면서 각 기능이 하는 동작과 이점에 대해서 알아본다. 각 동작마다 새로운 Branch를 생성한다.
+    - `main` : feign 등 프로젝트 기능 개발
+    - `P01-hystrix` : hystrix 적용
+    - `P02-eureka` : Eureka Server, Client 적용
+    - `P03-gateway` : Gateway 적용
   - Dockerfile 및 테스트 코드까지 작성한다.
-  - 구현하면서 메모한 내용 : https://github.com/justdoanything/self-study/blob/main/self-study/04%20MSA.md#msa-%EA%B5%AC%ED%98%84-note
+  - 구현하면서 메모한 내용 : https://github.com/justdoanything/self-study/blob/main/WIS/04%20MSA.md
   - 참고 모델
     
     ![image](https://user-images.githubusercontent.com/21374902/176366449-68b59fc8-97c7-49e6-b791-6a5e11b28fd0.png)
@@ -23,16 +27,16 @@
 ### ➕ 구현 내용
 MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 MSA Architecture를 사용하여 구현해본다.
 결제 흐름은 IC 단말기로부터부터 시작되는 승인 요청 데이터를 수신하고 VAN사 중계 혹은 카드사로 직승인 요청을 전달하고 처리 결과를 Client(POS 프로그램)로 응답해준다.
-  - POS 프로그램 : Postman
+  - POS 프로그램 : Postman, Swagger
   - VAN, 카드사 : Mok Server
 
 ### ➕ 프로그램 기능 요구사항
   - POS 프로그램으로부터 전달받은 승인 데이터로 VAN 혹은 카드사에 맞는 `요청 데이터를 생성하고 송신`하고 POS 프로그램에게 응답한다. `망취소` 기능도 갖고 있어야 한다.
-  - `망취소` : VAN 혹은 카드사 승인 서버에서 응답이 없거나 timeout이 발생했을 때 취소 전문을 보내고 다른 VAN으로 승인 요청을 다시하는 기능
+  - `망취소` : VAN 혹은 카드사 승인 서버에서 응답이 없거나 timeout이 발생했을 때 취소 전문을 보내는 기능
   - 승인 종류는 `카드사 직승인`, `VAN 승인`으로 크게 2가지로 분류한다.
   - `카드사 직승인` : 특정 카드사로 결제한 승인 건은 카드사에 맞는 전문을 생성하고 카드사로 직승인 전문을 요청한다.
   - `VAN 승인` : `VAN Fee 비율`에 따라 특정 VAN으로 승인 전문을 요청한다.
-  - 승인 서버는 결제 `대사` 및 `정산`을 위해서 각 트랜잭션을 DB에 저장한다.
+  - 승인 서버는 모든 트랜잭션을 Kafka를 통해 Message Queue에 저장하고 CQRS 서버가 결제 `대사` 및 `정산`을 위해서 각 트랜잭션을 DB에 저장 및 후처리를 한다.
 ### ➕ 서비스 기능 요구사항
   - #### Gateway
     - 인증/인가 처리
@@ -61,6 +65,14 @@ MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 M
     - 각 서비스는 여러개의 Container로 구성해서 Scailing 구성이 가능하도록 함
     - 여러개의 Container는 단일 Endpoint를 갖고 Eureka Server에 등록됨
 
+### ➕ MSA 서비스의 이점
+  - 특정 VAN/카드사가 동작하지 않아도 우회 승인을 자동으로 할 수 있다.
+  - 트랜잭션이 많이 일어나는 특정 카드사에 대해서만 Scale을 조정할 수 있어서 비용을 절약할 수 있다.\
+    (VAN사는 VAN FEE에 따라 Scale을 같이 적용하면 되고 카드사 이벤트가 있거나 사용량이 많은 특정 카드사에 대한 Scale을 유동적으로 적용할 수 있다.)
+  - 각 Micro Service는 다른 Service와 VAN/카드사에 영향을 받지 않는다.
+  - Client는 모든 VAN/카드사가 Down되지 않는 이상 결제는 정상적으로 가능하다.
+  - CQRS 서버에서 망취소에 대한 검증을 할 수 있다.
+  - 정합성이 맞지 않은 승인 트랜잭션에 대해서 선감지 및 처리를 할 수 있다.
 
 ### ➕ 사용 기술 및 아키텍처
   - #### Service Framework : ![SpringBoot Badge](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white)
@@ -75,9 +87,24 @@ MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 M
   - #### Infra : AWS, SAM, JPA, Flyway
 ![image](https://user-images.githubusercontent.com/21374902/152474692-b7a595bf-89eb-4e34-b93a-c5c912da3194.png)
 
+### ➕ 프로젝트 테스트 구동
+- 아래의 순서대로 진행
+- MYSQL 자원이 생성되지 않았으면 실행
+  - `docker run -p 3310:3306 -e MYSQL_ROOT_PASSWORD=yongwoo -e MYSQL_DATABASE=approval -d --name mysql-approval mysql:8.0`
+  - `docker exec -it mysql-approval /bin/bash`
+  - `mysql -u root -p`
+  - `yongwoo` 입력
+  - `create database ktfc` 등 필요한 데이터베이스 생성
+- Eureka Server 구동
+  - `eureka/src/main/java/prj/yong/payment/approval/eureka/EurekaApplication.java`
+- Gateway 구동
+  - `gateway/src/main/java/prj/yong/payment/approval/gateway/GatewayApplication.java`
+  - Eureka Server에 Gateway가 등록됐는지 확인 : `http://localhost:8761` 접속 후 확인
+  - 
+
 
 ### ➕ 참고 자료
-- ###### MSA Architecture : https://github.com/justdoanything/self-study/blob/main/self-study/04%20MSA.md
+- ###### MSA Architecture : https://github.com/justdoanything/self-study/blob/main/WIS/04%20MSA.md
 - ###### 오프라인 결제와 온라인 결제의 정산
   - 온라인 결제 정산
     - 매입요청은 정상적으로 결제승인이 떨어진것에 대하여 가맹점 -> 카드사에게 매입해 달라고 요청(PG사가 대행)

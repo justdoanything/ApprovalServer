@@ -24,3 +24,7 @@ hs_err_pid*
 
 ### kafka log ###
 kafka_2.12-2.6.1/logs/
+
+.gradle/
+.idea/
+.vscode/
