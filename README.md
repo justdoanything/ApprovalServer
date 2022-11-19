@@ -100,8 +100,10 @@ MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 M
 - Gateway 구동
   - `gateway/src/main/java/prj/yong/payment/approval/gateway/GatewayApplication.java`
   - Eureka Server에 Gateway가 등록됐는지 확인 : `http://localhost:8761` 접속 후 확인
-  - 
-
+- Micro Service 구동
+  - Micro Service 구동 후 Eureka Server에 등록됐는지 확인
+- Kafka 구동
+  - [➕ Kafka 실행](#-kafka-실행)
 
 ### ➕ 참고 자료
 - ###### MSA Architecture : https://github.com/justdoanything/self-study/blob/main/WIS/04%20MSA.md
@@ -129,7 +131,8 @@ MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 M
 - Zookeeper&Kafka 실행 확인 : `netstat -an | grep 2181`
 - Kafka topic 생성 : `bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test`
 - Kafka topic 생성 확인 : `bin/kafka-topics.sh --list --bootstrap-server localhost:9092`
-- Kafka 메세지 발행 : `bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test`
-- Kafka 메세지 소비 : `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning`
+- 2개의 터미널에 아래 명령어를 실행하고 `producer`에서 메세지를 입력하면 `consumer`에서 메세지가 출력된다.
+  - Kafka 메세지 발행 : `bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test`
+  - Kafka 메세지 소비 : `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning`
 
 - Reference : https://developer-youngjun.tistory.com/13

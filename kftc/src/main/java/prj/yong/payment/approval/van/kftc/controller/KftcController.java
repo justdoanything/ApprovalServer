@@ -62,7 +62,7 @@ public class KftcController {
     }
 
     @ApiOperation(value = "kftc 취소 전문 수신", httpMethod = "POST", notes = "kftc 취소 요청 전문 수신")
-    @PostMapping("/rest/van/kftc/v1.0")
+    @PostMapping("/rest/van/kftc/cancel/v1.0")
     public ResponseEntity<Object> createCancelMessage(@RequestParam ClientRxTransanction request) throws Exception {
         
         LOGGER.debug("Calling url : /rest/van/kftc/v1.0\n- request : " + request.toString());

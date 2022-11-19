@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 public class KftcRxTransanction {
     @Id @GeneratedValue
     private Long rxId;
-    private Long txId;
-    private String resCd;
-    private String resMsg;
-    private String approvalNo;
-    private String approvalDt;
-    private String approvalMsg;
+//    private Long txId;
+//    private String resCd;
+//    private String resMsg;
+//    private String approvalNo;
+//    private String approvalDt;
+//    private String approvalMsg;
 }

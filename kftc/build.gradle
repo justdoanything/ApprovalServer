@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.3.8.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'com.diffplug.spotless' version '6.3.0'
 	id 'java'
 }
 
@@ -35,7 +36,7 @@ dependencies {
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 
-	implementation 'org.postgresql:postgresql:42.3.3'
+	implementation 'mysql:mysql-connector-java'
 
 	implementation 'com.google.code.gson:gson:2.7'
 
@@ -55,4 +56,20 @@ dependencyManagement {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+spotless {
+	java {
+		importOrder 'java', 'javax', 'org', 'com', ''
+		removeUnusedImports()
+		palantirJavaFormat("2.27.0")
+		trimTrailingWhitespace()
+		endWithNewline()
+	}
+	format 'misc', {
+		target '**/*.yml', '**/*.gradle', '**/*.md', '**/.gitignore'
+		indentWithSpaces(2)
+		trimTrailingWhitespace()
+		endWithNewline()
+	}
 }
