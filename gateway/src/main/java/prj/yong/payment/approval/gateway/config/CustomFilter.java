@@ -5,34 +5,33 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
-
 import reactor.core.publisher.Mono;
 
 @Component
 public class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Config> {
-  
-  public CustomFilter() {
-    super(Config.class);
-  }
 
-  @Override
-  public GatewayFilter apply(Config config) {
-      
-    // Custom Pre Filter
-      return (exchange, chain) -> {
-          ServerHttpRequest request = exchange.getRequest();
-          ServerHttpResponse response = exchange.getResponse();
+    public CustomFilter() {
+        super(Config.class);
+    }
 
-          System.out.println("This is pre custom filter ");
+    @Override
+    public GatewayFilter apply(Config config) {
 
-          // Custom Post Filter
-          return chain.filter(exchange).then(Mono.fromRunnable(() -> {
-            System.out.println("This is post custom filter ");
+        // Custom Pre Filter
+        return (exchange, chain) -> {
+            ServerHttpRequest request = exchange.getRequest();
+            ServerHttpResponse response = exchange.getResponse();
 
-          }));
-      };
-  }
-  public static class Config{
-    // Put the configuration properties
-  }
+            System.out.println("This is pre custom filter ");
+
+            // Custom Post Filter
+            return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                System.out.println("This is post custom filter ");
+            }));
+        };
+    }
+
+    public static class Config {
+        // Put the configuration properties
+    }
 }
