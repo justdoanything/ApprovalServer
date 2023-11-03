@@ -19,7 +19,7 @@
     - `P02-eureka` : Eureka Server, Client 적용
     - `P03-gateway` : Gateway 적용
   - Dockerfile 및 테스트 코드까지 작성한다.
-  - 구현하면서 메모한 내용 : https://github.com/justdoanything/self-study/blob/main/WIS/04%20MSA.md
+  - 구현하면서 메모한 내용 : https://github.com/justdoanything/self-study/blob/main/04%20MSA.md
   - 참고 모델
     
     ![image](https://user-images.githubusercontent.com/21374902/176366449-68b59fc8-97c7-49e6-b791-6a5e11b28fd0.png)
@@ -106,7 +106,7 @@ MSA을 공부하고 Off-line 결제 승인을 중계해주는 승인 서버를 M
   - [➕ Kafka 실행](#-kafka-실행)
 
 ### ➕ 참고 자료
-- ###### MSA Architecture : https://github.com/justdoanything/self-study/blob/main/WIS/04%20MSA.md
+- ###### MSA Architecture : https://github.com/justdoanything/self-study/blob/main/04%20MSA.md
 - ###### 오프라인 결제와 온라인 결제의 정산
   - 온라인 결제 정산
     - 매입요청은 정상적으로 결제승인이 떨어진것에 대하여 가맹점 -> 카드사에게 매입해 달라고 요청(PG사가 대행)
